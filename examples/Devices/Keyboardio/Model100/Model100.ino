@@ -100,6 +100,9 @@
 // Support for the GeminiPR Stenography protocol
 #include "Kaleidoscope-Steno.h"
 
+// Support for Autoshifting
+#include <Kaleidoscope-AutoShift.h>
+
 /** This 'enum' is a list of all the macros used by the Model 100's firmware
   * The names aren't particularly important. What is important is that each
   * is unique.
@@ -601,7 +604,11 @@ KALEIDOSCOPE_INIT_PLUGINS(
 
   // Enables the GeminiPR Stenography protocol. Unused by default, but with the
   // plugin enabled, it becomes configurable - and then usable - via Chrysalis.
-  GeminiPR);
+  GeminiPR,
+
+  // https://github.com/keyboardio/Kaleidoscope/tree/master/plugins/Kaleidoscope-AutoShift
+  AutoShift
+);
 
 /** The 'setup' function is one of the two standard Arduino sketch functions.
  * It's called when your keyboard first powers up. This is where you set up
@@ -610,6 +617,9 @@ KALEIDOSCOPE_INIT_PLUGINS(
 void setup() {
   // First, call Kaleidoscope's internal setup function
   Kaleidoscope.setup();
+
+  AutoShift.setEnabled(AutoShift.numberKeys() | AutoShift.symbolKeys());
+  AutoShift.setTimeout(200);
 
   // Set the hue of the boot greeting effect to something that will result in a
   // nice green color.
