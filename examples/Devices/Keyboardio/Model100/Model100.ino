@@ -619,7 +619,7 @@ void setup() {
   QUKEYS(
     kaleidoscope::plugin::Qukey(0, KeyAddr(3, 0), Key_LeftShift),    // F/shift
   )
-  Qukeys.setHoldTimeout(500);
+  Qukeys.setHoldTimeout(175);
   Qukeys.setOverlapThreshold(50);
   Qukeys.setMinimumHoldTime(100);
   Qukeys.setMinimumPriorInterval(80);
