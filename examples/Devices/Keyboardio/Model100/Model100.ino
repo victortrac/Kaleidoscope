@@ -619,17 +619,17 @@ void setup() {
   QUKEYS(
     kaleidoscope::plugin::Qukey(0, KeyAddr(3, 0), Key_LeftShift),    // F/shift
   )
-  Qukeys.setHoldTimeout(175);
-  Qukeys.setOverlapThreshold(50);
-  Qukeys.setMinimumHoldTime(100);
+  Qukeys.setHoldTimeout(250);
+  Qukeys.setOverlapThreshold(80);
+  Qukeys.setMinimumHoldTime(50);
   Qukeys.setMinimumPriorInterval(80);
-  Qukeys.setMaxIntervalForTapRepeat(150);
+  Qukeys.setMaxIntervalForTapRepeat(200);
 
   // First, call Kaleidoscope's internal setup function
   Kaleidoscope.setup();
 
   AutoShift.setEnabled(AutoShift.numberKeys() | AutoShift.symbolKeys());
-  AutoShift.setTimeout(175);
+  AutoShift.setTimeout(165);
 
   // Set the hue of the boot greeting effect to something that will result in a
   // nice green color.
